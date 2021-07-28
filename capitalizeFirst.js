@@ -1,5 +1,5 @@
 function capitalizeFirst(arr){
-    const capitalizeString = arr => arr[0].toUpperCase() + arr.slice(1)
+    const capitalizeString = str => str[0].toUpperCase() + str.slice(1)
     
     if (arr.length === 1){
         return [capitalizeString(arr[0])]
