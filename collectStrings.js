@@ -1,18 +1,13 @@
 function collectStrings(obj){
     let returnArr = []
 
-    function checkForString(obj) {
-        for (let key in obj) {
-            if (typeof(obj[key]) === "object"){
-                checkForString(obj[key]);
-            } else if (typeof(obj[key] === "string")){
-                returnArr.push(obj[key]);
-            }
+    for (let key in obj) {
+        if (typeof(obj[key]) === "object"){
+            returnArr = returnArr.concat(collectStrings(obj[key]));
+        } else if (typeof(obj[key] === "string")){
+            returnArr.push(obj[key]);
         }
     }
-
-    checkForString(obj)
-
     return returnArr;
 }
 
