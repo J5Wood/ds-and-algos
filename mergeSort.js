@@ -12,11 +12,11 @@ function mergeSort(arr) {
         indexTwo= 0;
 
         for (let i = 0; i < arrOne.length + arrTwo.length; i++){
-            if ( !arrTwo[indexTwo] || arrOne[indexOne] < arrTwo[indexTwo]) {
-                returnArr[i] = arrOne[indexOne];
+            if (!arrTwo[indexTwo] || arrOne[indexOne] < arrTwo[indexTwo]) {
+                returnArr.push(arrOne[indexOne]);
                 indexOne++;
             } else {
-                returnArr[i] = arrTwo[indexTwo];
+                returnArr.push(arrTwo[indexTwo]);
                 indexTwo++;
             }
         }
