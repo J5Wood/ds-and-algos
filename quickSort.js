@@ -4,7 +4,7 @@ function quickSort(arr, left = 0, right = arr.length - 1){
     //if array length is 1 or less
     if(left < right){
 
-        //pivot returns original array but with "pivot" value in correct place
+        //pivot moves "pivot" value to correct place, returns index to split remainder for recursion
         let pivotIdx = pivot(arr, left, right)
 
 
