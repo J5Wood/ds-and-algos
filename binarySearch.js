@@ -1,6 +1,6 @@
 function binarySearch(arr, val) {
-    let leftPoint = -1;
-    let rightPoint = arr.length;
+    let leftPoint = 0;
+    let rightPoint = arr.length - 1;
 
     while (leftPoint <= rightPoint){
         let midPoint = Math.floor((rightPoint + leftPoint) / 2);
@@ -16,6 +16,6 @@ function binarySearch(arr, val) {
     return -1;
 }
 
-console.log(binarySearch([1,3,4,6,8,9,12,14,16,23,25,26,27,28,34,45,56,57,58,59,60], 23));
+console.log(binarySearch([1,3,4,6,8,9,12,14,16,23,25,26,27,28,34,45,56,57,58,59,60], 9));
 
 
