@@ -57,7 +57,7 @@ class BinaryTree{
         return false
     }
 
-    depthFirstSearch(){
+    depthFirstSearchPreOrder(){
         if(!this.root) return undefined;
         
         let data = []
@@ -73,6 +73,20 @@ class BinaryTree{
         traverse(current);
         return data;
     }
+
+    depthFirstSearchPostOrder(){
+        if(!this.root) return undefined;
+        let data = [];
+        let current = this.root;
+
+        function traverse(node){
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            data.push(node.val);
+        }
+        traverse(current);
+        return data;
+    }
 }
 
 let tree = new BinaryTree();
@@ -83,4 +97,6 @@ tree.insert(6);
 tree.insert(3);
 tree.insert(8);
 
-console.log(tree.depthFirstSearch())
+console.log(tree.depthFirstSearchPreOrder())
+
+console.log(tree.depthFirstSearchPostOrder())
