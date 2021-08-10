@@ -87,6 +87,21 @@ class BinaryTree{
         traverse(current);
         return data;
     }
+
+    depthFirstSearchInOrder(){
+        if (!this.root) return undefined;
+        let data = [];
+        let current = this.root;
+
+        function traverse(node){
+            if(node.left) traverse(node.left);
+            data.push(node.val);
+            if(node.right) traverse(node.right);
+        }
+        traverse(current);
+        return data;
+    }
+
 }
 
 let tree = new BinaryTree();
@@ -97,6 +112,8 @@ tree.insert(6);
 tree.insert(3);
 tree.insert(8);
 
-console.log(tree.depthFirstSearchPreOrder())
+console.log(tree.depthFirstSearchPreOrder());
 
-console.log(tree.depthFirstSearchPostOrder())
+console.log(tree.depthFirstSearchPostOrder());
+
+console.log(tree.depthFirstSearchInOrder());
