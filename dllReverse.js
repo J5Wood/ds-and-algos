@@ -44,20 +44,19 @@ class DoublyLinkedList{
             rightNode.prev === leftNode ? leftNode.prev = rightNode : leftNode.prev = rightNode.prev
             leftNode.next === rightNode ? rightNode.next = leftNode : rightNode.next = leftNode.next
 
-            if(leftPrev){
+            leftNode.prev.next = leftNode
+            rightNode.next.prev = rightNode
+
+            if(this.head === leftNode){
+                this.head = rightNode
+                rightNode.prev = null
+                this.tail = leftNode
+                leftNode.next = null
+            } else {
                 rightNode.prev = leftPrev
                 leftNode.next = rightNext
                 rightNext.prev = leftNode
                 leftPrev.next = rightNode
-            } else {
-                rightNode.prev = null
-                leftNode.next = null
-
-                leftNode.prev.next = leftNode
-                rightNode.next.prev = rightNode
-
-                this.head = rightNode
-                this.tail = leftNode
             }
             [leftNode, rightNode] = [rightNode.next, leftNode.prev]
 
@@ -71,7 +70,7 @@ class DoublyLinkedList{
 
 let dll = new DoublyLinkedList
 
-dll.push(5).push(10).push(15).push(20)
+dll.push(5).push(10).push(15).push(20).push(25).push(30)
 console.log(dll.reverse())
 console.log(dll.length)
 
@@ -82,7 +81,8 @@ console.log(dll.head.val)
 console.log(dll.head.next.val)
 console.log(dll.head.next.next.val)
 console.log(dll.head.next.next.next.val)
-console.log(dll.head.next.next.next.next)
+console.log(dll.head.next.next.next.next.val)
+console.log(dll.head.next.next.next.next.next.val)
 
 console.log("")
 console.log("Tail up:")
@@ -91,4 +91,5 @@ console.log(dll.tail.val)
 console.log(dll.tail.prev.val)
 console.log(dll.tail.prev.prev.val)
 console.log(dll.tail.prev.prev.prev.val)
-console.log(dll.tail.prev.prev.prev.prev)
+console.log(dll.tail.prev.prev.prev.prev.val)
+console.log(dll.tail.prev.prev.prev.prev.prev.val)
